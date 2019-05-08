@@ -33,12 +33,12 @@
 
 function GameObject (att1){
   this.createdAt = att1.createdAt;
-  this.Name = att1.Name;
+  this.name = att1.name;
   this.dimensions = att1.dimensions;
 }
 
 GameObject.prototype.destroy = function() {
-  `${this.Name} was removed from the game.`
+  return `${this.name} was removed from the game.`
 }
 
 
@@ -48,8 +48,9 @@ function CharacterStats (att2){
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function() {
-  `${this.Name} was removed from the game.`
+  return `${this.name} took damage.`
 }
 
 function Humanoid (att3){
@@ -57,13 +58,12 @@ function Humanoid (att3){
   this.team = att3.team;
   this.weapons = att3.weapons;
   this.language = att3.language;
-  // this.greet() =
-  // this.takeDamage() =
 }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 Humanoid.prototype.greet = function() {
-  `${this.Name} offers a greeting in ${this.language}.`
+  return `${this.name} offers a greeting in ${this.language}.`
 }
  
 
@@ -126,6 +126,8 @@ Humanoid.prototype.greet = function() {
     language: 'Elvish',
   });
 
+
+ 
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -136,6 +138,7 @@ Humanoid.prototype.greet = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  
 
 
   // Stretch task: 
